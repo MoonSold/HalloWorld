@@ -13,5 +13,5 @@ while True:
 			
 
 	client_socket,adress = MY_SOCKET.accept() 
-	client_socket.sendall(("HTTP/1.1 200 OK\n\n" + "<h1>Привет мир</h1>").encode()) 
+	client_socket.sendall(("HTTP/1.1 200 OK\n\n" + "<h1>Hallo World</h1>").encode()) 
 	client_socket.close()  
