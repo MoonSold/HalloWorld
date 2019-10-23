@@ -31,6 +31,8 @@ TABLE = "<table>\n" + "<style type=\"text/css\">\nTABLE {\nwidth: 100%;\nborder-
 
 
 
+MY_BASE..close()
+
 
 MY_SOCKET = socket(AF_INET,SOCK_STREAM) 
 MY_SOCKET.bind(("localhost",5000))
