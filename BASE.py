@@ -9,9 +9,8 @@ LIST = []
 L = None
 
 while L != "":
-	
-	NAMES = input("Введите имя, пароль и мэйл(через запятую): ") 
-	print("Если хотите выйти нажмиите ENTER при пустом вводе")    
+	print("If you want to exit, press ENTER with empty input")
+	NAMES = input("Input NAME,PASSWORD and EMAIL(comma separated): ")    
 	PERSON = NAMES.split(",")  
 	LIST.append(PERSON) 
 	
