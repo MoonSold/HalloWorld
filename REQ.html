@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+
+<html>
+
+
+<head>
+
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.4.2.min.js"></script>
+
+  <script type="text/javascript">
+
+    $(document).ready(function() {
+      $("#CLICK").click(function() {
+        var FIO = $("#FIO").val();
+        var PASSWORD = $("#PASS").val();
+        var MAIL = $("#MAIL").val();
+
+        $.ajax({
+          url: "http://localhost:5000/users",
+          type: "POST",
+          dataType: "text",
+          data: ("FIO=" + FIO + "&PASSWORD=" + PASSWORD + "&MAIL=" + MAIL),
+          success: function FUNCK(){
+      	     location.href = "http://localhost:5000/users"
+      	    }
+          });
+        });
+      });
+
+  </script>
+
+  <style>
+
+    body {
+        background-color: #FFC0CB;
+        margin: 200px 0px 0px 500px;
+        background-image: url(https://avatanplus.com/files/resources/mid/5a9fd9eb462a0162006b3f17.png);
+        background-position: right;
+        background-repeat: no-repeat;
+    }
+
+    p  {
+        font-size: x-large;
+        font-weight: bolder;
+    }
+
+    input {
+       border: 3px solid #880071;
+       border-radius: 5px;
+       background: #ffffff
+    }
+
+    #CLICK {
+      background-color: #880071;
+      color: #FFFFFF;
+      border: 2px solid #999999;
+      border-radius: 15px;
+      font-size: 26px;
+      transition-duration: 0.4s;
+      cursor: pointer;
+      position: absolute;
+
+
+    }
+
+    #BACK{
+      background-color: #880071;
+      color: #FFFFFF;
+      border: 2px solid #999999;
+      border-radius: 15px;
+      font-size: 26px;
+      transition-duration: 0.4s;
+      cursor: pointer;
+      position: absolute;
+      margin-right: 600px;
+      margin-top: 50px;
+
+    }
+
+  </style>
+
+</head>
+
+
+<body>
+
+      <p>
+        <b>ВВЕДИТЕ ДАННЫЕ:</b><br>
+      </p>
+
+      <h1>
+        <input type="text" size="50" placeholder="ВВЕДИТЕ ФИО" id = "FIO"></input>
+      </h1>
+
+      <h2>
+        <input type="text" size="50" placeholder="ВВЕДИТЕ ПАРОЛЬ" id = "PASS"></input>
+      </h2>
+
+      <h3>
+        <input type="text" size="50" placeholder="ВВЕДИТЕ MAIL" id = "MAIL"></input>
+      </h3>
+
+
+  <button id = "CLICK" size = "30">COХРАНИТЬ</button>
+
+  <button id = "BACK" size = "50" onclick="window.location='http://localhost:5000/users'">ВЕРНУТЬСЯ НАЗАД</button>
+
+
+</body>
+
+
+</html>

@@ -1,40 +1,44 @@
-from sqlite3 import *  
+from sqlite3 import *
 
-MY_BASE = connect("ALL_USERS_PASSWORD.db") 
+MY_BASE = connect("ALL_USERS_PASSWORD.db")
 
-CURSOR = MY_BASE.cursor()   
+CURSOR = MY_BASE.cursor()
 
 LIST = []
 
-L = None
 
-while L != "":
-	print("If you want to exit, press ENTER with empty input")
-	NAMES = input("Input NAME,PASSWORD and EMAIL(comma separated): ")    
-	PERSON = NAMES.split(",")  
-	LIST.append(PERSON) 
-	
-	if NAMES == "":  
-		
-		L = ""
+while True:
+
+	print("Если хотите выйти нажмиите ENTER при пустом вводе")
+
+	INP = input("Введите имя, пароль и мэйл(через запятую): ")
+
+	PERSON = INP.split(",")
+
+	if len(PERSON) == 3 and len(PERSON[0].split(" ")) == 3 and "@" in PERSON[2]:
+		LIST.append(PERSON)
+
+	elif INP == "":
+		break
+
+
 
 R = LIST.pop()
+
 R = None
 
-print(LIST)
 
 
 
+try:
+	CURSOR.execute("""CREATE TABLE users(SNP TEXT,PASSWORD TEXT,MAIL TEXT)""")
 
-CURSOR.execute("""CREATE TABLE users(SNP TEXT,PASSWORD TEXT,MAIL TEXT)""") 
+	for PER in LIST:
+		CURSOR.execute("""INSERT INTO users (SNP,PASSWORD,MAIL) VALUES (?,?,? )""",PER)
+
+except:
+	print("\t\t\t\tБАЗА ДАННЫХ УЖЕ СУЩЕСТВУЕТ\t\t\t\t")
 
 
-for PER in LIST:
-	CURSOR.execute("""INSERT INTO users (SNP,PASSWORD,MAIL) VALUES (?,?,? )""",PER)
-
- 
-print("Введено неправильно")
-
-
-MY_BASE.commit() 
+MY_BASE.commit()
 MY_BASE.close()
