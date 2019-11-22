@@ -26,7 +26,7 @@ class SOCKET():
 
 		def BEGIN():
 
-			file_BEGIN = open(r"C:\Users\bkv\Desktop\WEB\BEGIN.html","r",encoding="UTF8")
+			file_BEGIN = open("BEGIN.html","r",encoding="UTF8")
 
 			BEGIN = file_BEGIN.read()
 
@@ -72,7 +72,7 @@ class SOCKET():
 
 		def NEW_USERS():
 
-			file_reqest = open(r"C:\Users\bkv\Desktop\WEB\REQ.html","r",encoding="UTF8")
+			file_reqest = open("REQ.html","r",encoding="UTF8")
 
 			REQ = file_reqest.read()
 
@@ -84,7 +84,7 @@ class SOCKET():
 
 		def CREATING_TABLE():
 
-			file_table = open(r"C:\Users\bkv\Desktop\WEB\TABLE.html","r",encoding="UTF8")
+			file_table = open("TABLE.html","r",encoding="UTF8")
 
 			TABLE = file_table.read()
 
