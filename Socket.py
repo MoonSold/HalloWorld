@@ -3,7 +3,7 @@ from sqlite3 import *
 
 
 
-
+#СОЗДАЁМ КЛАСС НАШЕГО СЕРВЕРА(Я ПОНИМАЮ,ЧТО ЗДЕСЬ ЭТО БЕСПОЛЕЗНО)
 class SOCKET():
 
 	global MY_BASE
@@ -23,10 +23,12 @@ class SOCKET():
 		global reqest
 
 		reqest = None
-
+		
+		#СОЗДАНИЕ НАЧАЛЬНОЙ СТРАНИЦЫ
+		
 		def BEGIN():
 
-			file_BEGIN = open("BEGIN.html","r",encoding="UTF8")
+			file_BEGIN = open("BEGIN.html","r",encoding="UTF8") #ЕСЛИ НЕ РАБОТАЕТ ПРОПИШИТЕ ПОЛНЫЙ ПУТЬ К ФАЙЛУ И ПОСТАВЬТЕ ПЕРЕД НИМ r 
 
 			BEGIN = file_BEGIN.read()
 
@@ -34,7 +36,7 @@ class SOCKET():
 
 			return BEGIN
 
-
+		#СОЗДАНИЕ фУНКЦИИ ДЛЯ ОБРАБОТКИ НОВЫХ ПОЛЬЗОВАТЕЛЕЙ 
 
 		def ADD_NEW_USERS(CHANGE,reqest):
 
@@ -69,10 +71,10 @@ class SOCKET():
 
 					ALL_INF = None
 
-
+			#ФУНКЦИЯ ОТВЕЧАЮЩАЯ ЗА СТРАНИЦУ С ПОЛЯМИ ВВОДА 
 		def NEW_USERS():
 
-			file_reqest = open("REQ.html","r",encoding="UTF8")
+			file_reqest = open("REQ.html","r",encoding="UTF8") #ЕСЛИ НЕ РАБОТАЕТ ПРОПИШИТЕ ПОЛНЫЙ ПУТЬ К ФАЙЛУ И ПОСТАВЬТЕ ПЕРЕД НИМ r 
 
 			REQ = file_reqest.read()
 
@@ -81,10 +83,10 @@ class SOCKET():
 			return REQ
 
 
-
+			#СТРАНИЦА С ТАБЛИЦЕЙ 
 		def CREATING_TABLE():
 
-			file_table = open("TABLE.html","r",encoding="UTF8")
+			file_table = open("TABLE.html","r",encoding="UTF8") #ЕСЛИ НЕ РАБОТАЕТ ПРОПИШИТЕ ПОЛНЫЙ ПУТЬ К ФАЙЛУ И ПОСТАВЬТЕ ПЕРЕД НИМ r 
 
 			TABLE = file_table.read()
 
@@ -113,7 +115,7 @@ class SOCKET():
 			return TABLE
 
 
-
+			#ОСНОВА СЕРВЕРА 
 
 		MY_SOCKET = socket(AF_INET,SOCK_STREAM)
 		MY_SOCKET.bind(("localhost",5000))
